@@ -1,0 +1,71 @@
+<div class="home-container">
+
+  <app-top-navbar />
+
+  <div class="home-body">
+
+    <app-side-navbar (addTask)="openAddTaskModal()" [labels]="labels" (viewSelected)="selectView($event)" />
+
+    <main class="home-content"> 
+
+<div class="descriptionAndSearch">
+  <div class="description">
+    <h1>Mis Tareas</h1>
+    <span class="subtitle">Organizá. Completá. Crecé</span>
+  </div>
+  <div class="searchForm">
+
+  <form  [formGroup]="searchForm">
+    
+     <mat-form-field appearance="outline">
+          <mat-label>Buscar tarea</mat-label>
+          <input
+            matInput
+            formControlName="search"
+            placeholder="Buscar por título..."
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Todos los labels</mat-label>
+          <mat-select formControlName="labels">
+            <mat-option [value]="null">
+              Todos
+            </mat-option>
+            @for (label of labels; track label.id) {
+              <mat-option [value]="label.id">
+                {{ label.name }}
+              </mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+    </form>
+    
+    <button mat-icon-button  [matMenuTriggerFor]="labelMenu" aria-label="Opciones de label" class="options-button"
+     [disabled]="searchForm.controls.labels.value === null">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #labelMenu="matMenu">
+        <button mat-menu-item (click)="editLabel()">
+            <mat-icon>edit</mat-icon>
+            <span>Editar</span>
+        </button>
+
+        <button mat-menu-item (click)="deleteLabel()">
+            <mat-icon>delete</mat-icon>
+            <span>Borrar</span> 
+        </button>
+    </mat-menu>
+
+    <button  class="newLabelButton" matFab (click)="openAddLabelModal()" [matTooltip]="'Agregar etiqueta'">
+        <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>
+      <app-task-view [tasks]="filteredTasks" [labels]="labels" (taskEdit)="editTask($event)" (taskConfirmSave)="taskConfirmSave()" />
+    </main>
+
+  </div>
+
+</div> 

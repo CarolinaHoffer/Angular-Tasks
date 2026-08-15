@@ -1,0 +1,64 @@
+<div class="labels-container">
+
+  @for (labelId of selectedLabelIds; track labelId) {
+    @if (getLabel(labelId); as label) {
+
+      <div
+        class="label-chip"
+        [style.--label-color]="label.color"
+      >
+        <mat-icon>
+          {{ label.icon }}
+        </mat-icon>
+
+        <span>
+          {{ label.name }}
+        </span>
+
+        <button
+          type="button"
+          (click)="removeLabel(label.id)"
+          [attr.aria-label]="'Eliminar ' + label.name"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+
+    }
+  }
+
+  <button
+    type="button"
+    class="add-label-button"
+    [matTooltip]="'Seleccionar labels para la tarea'"
+    [matMenuTriggerFor]="labelMenu"
+  >
+    <mat-icon>add</mat-icon>
+    <span>Añadir</span>
+  </button>
+  <button mat-icon-button class="add-label" [matTooltip]="'Añadir nuevo label'" (click)="addLabel()">
+    <mat-icon>new_label</mat-icon>
+  </button>
+
+</div>
+
+
+<mat-menu #labelMenu="matMenu">
+
+  @for (label of labels; track label.id) {
+
+    <button
+      mat-menu-item
+      class="label-option"
+      (click)="toggleLabel(label.id)"
+    >
+      <span>{{ label.name }}</span>
+
+      @if (isSelected(label.id)) {
+        <mat-icon class="check-icon">check</mat-icon>
+      }
+    </button>
+
+  }
+
+</mat-menu>

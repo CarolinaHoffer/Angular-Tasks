@@ -1,0 +1,182 @@
+<div class="login-form">
+
+  <mat-card class="login-form" appearance="outlined">
+
+    <mat-card-content class="login-card-content">
+
+      <div class="login-header">
+
+        <img
+          src="/icono.png"
+          alt="Tasks"
+          [class.spinning]="isLoading"
+        />
+
+        <h1>Crear una cuenta</h1>
+
+        <p>Comenzá a organizar tus tareas</p>
+
+      </div>
+
+      <form
+        [formGroup]="registerForm"
+        (ngSubmit)="onSubmit()"
+      >
+
+        <mat-form-field appearance="outline">
+          <mat-icon matPrefix>person</mat-icon>
+
+          <mat-label>Nombre</mat-label>
+
+          <input
+            matInput
+            type="text"
+            formControlName="firstName"
+          />
+
+          @if (registerForm.controls.firstName.hasError('required')) {
+            <mat-error>
+              El nombre es obligatorio
+            </mat-error>
+          }
+
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+
+          <mat-icon matPrefix>person_outline</mat-icon>
+
+          <mat-label>Apellido</mat-label>
+
+          <input
+            matInput
+            type="text"
+            formControlName="lastName"
+          />
+
+          @if (registerForm.controls.lastName.hasError('required')) {
+            <mat-error>
+              El apellido es obligatorio
+            </mat-error>
+          }
+
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+
+          <mat-icon matPrefix>email</mat-icon>
+
+          <mat-label>Email</mat-label>
+
+          <input
+            matInput
+            type="email"
+            formControlName="email"
+          />
+
+          @if (registerForm.controls.email.hasError('required')) {
+            <mat-error>
+              El email es obligatorio
+            </mat-error>
+          }
+
+          @if (registerForm.controls.email.hasError('email')) {
+            <mat-error>
+              Ingresá un email válido
+            </mat-error>
+          }
+
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+
+          <mat-icon matPrefix>lock</mat-icon>
+
+          <mat-label>Contraseña</mat-label>
+
+          <input
+            matInput
+            type="password"
+            formControlName="password"
+          />
+
+          @if (registerForm.controls.password.hasError('required')) {
+            <mat-error>
+              La contraseña es obligatoria
+            </mat-error>
+          }
+
+          @if (registerForm.controls.password.hasError('minlength')) {
+            <mat-error>
+              La contraseña debe tener al menos 6 caracteres
+            </mat-error>
+          }
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+
+  <mat-icon matPrefix>lock</mat-icon>
+
+  <mat-label>Repetir contraseña</mat-label>
+
+  <input
+    matInput
+    type="password"
+    formControlName="confirmPassword"
+  />
+
+  @if (registerForm.controls.confirmPassword.hasError('required')) {
+    <mat-error>
+      Repetir la contraseña es obligatorio
+    </mat-error>
+  }
+
+  @if (
+    registerForm.controls.confirmPassword.hasError('passwordMismatch')
+  ) {
+    <mat-error>
+      Las contraseñas no coinciden
+    </mat-error>
+  }
+
+</mat-form-field>
+
+
+        <button
+          mat-flat-button
+          type="submit"
+          class="login-button"
+        >
+          Registrarse
+        </button>
+
+      </form>
+
+    </mat-card-content>
+
+  <hr class="divider">
+
+    <mat-card-actions>
+
+      <div class="register-divider">
+
+        <span>¿Ya tenés una cuenta?</span>
+
+        <a
+          href=""
+          (click)="goToLogin(); $event.preventDefault()"
+        >
+          Iniciá sesión
+        </a>
+
+      </div>
+
+    </mat-card-actions>
+
+  </mat-card>
+
+</div>

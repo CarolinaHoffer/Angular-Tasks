@@ -1,0 +1,32 @@
+<header class="top-navbar">
+  
+  <div class="navbar-actions">
+    <div class="navbar-logo">
+        <img src="/icono.png" alt="Logo" />
+        <h1>Taskwer</h1>
+    </div>
+    <div class="navbar-buttons">
+        <h1>{{user?.firstName}} {{user?.lastName}}</h1>
+
+        <button mat-icon-button  [matMenuTriggerFor]="userMenu" [matTooltip]="'Edicion de usuario'" class="options-button">
+            <mat-icon>person</mat-icon>
+        </button>
+
+        <mat-menu #userMenu="matMenu">
+            <button mat-menu-item (click)="editUser()">
+                <mat-icon>face</mat-icon>
+                <span>Editar usuario</span>
+            </button>
+
+            <button mat-menu-item (click)="changePassword()">
+                <mat-icon>password</mat-icon>
+                <span>Editar password</span>
+            </button>
+        </mat-menu>
+
+        <button mat-button class="logout-button" (click)="logout()">
+            <mat-icon>logout</mat-icon><span>Salir</span>
+        </button>
+    </div>
+  </div>
+</header>

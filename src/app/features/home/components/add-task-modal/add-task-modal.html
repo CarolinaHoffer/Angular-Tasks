@@ -1,0 +1,81 @@
+<h2 mat-dialog-title>
+  {{ data.task ? 'Editar tarea' : 'Nueva tarea' }}
+</h2>
+<hr class="divider">
+
+<mat-dialog-content>
+
+  <form [formGroup]="taskForm">
+
+    <mat-form-field class="titleField" appearance="outline">
+      <mat-label>Título</mat-label>
+      <input matInput formControlName="title">
+    </mat-form-field>
+
+    <mat-form-field class="descriptionField" appearance="outline">
+      <mat-label>Descripción</mat-label>
+      <textarea
+        matInput
+        formControlName="description" >
+      </textarea>
+    </mat-form-field>
+
+    <div class="date-time">
+      <mat-form-field appearance="outline">
+      <mat-label>Fecha Límite</mat-label>
+
+      <input
+        matInput
+        [matDatepicker]="datePicker"
+        formControlName="dueDate"
+      />
+
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="datePicker">
+      </mat-datepicker-toggle>
+
+      <mat-datepicker #datePicker yPosition="above"></mat-datepicker>
+    </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Hora Límite</mat-label>
+        <input
+          matInput
+          [matTimepicker]="timePicker"
+          formControlName="dueTime">
+
+        <mat-timepicker-toggle
+          matIconSuffix
+          [for]="timePicker">
+        </mat-timepicker-toggle>
+
+        <mat-timepicker #timePicker></mat-timepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="label-container">
+      <app-label-selector
+        [labels]="data.labels"
+        [selectedLabelIds]="selectedLabelIds"
+        (selectedLabelIdsChange)="selectedLabelIds = $event"
+        (addLabelEvent)="addLabel()"
+      />
+      
+    </div>
+
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+
+  <button mat-button (click)="cancel()">
+    Cancelar
+  </button>
+
+  <button mat-flat-button color="primary" (click)="submit()">
+  {{ data.task ? 'Guardar cambios' : 'Crear tarea' }}
+</button>
+
+</mat-dialog-actions>

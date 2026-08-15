@@ -1,0 +1,61 @@
+.top-navbar {
+  height: 64px;
+  position: absolute;
+  top: -64px;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  animation: slideDown 500ms ease-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    top: -64px;
+  }
+
+  to {
+    top: 0;
+  }
+}
+
+.navbar-actions {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 24px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo img {
+  margin-left: 5px;
+  width: 50px;
+  height: 50px;
+}
+
+.navbar-logo h1 {
+  margin-left: 10px;
+  font-size: 32px;
+  font-weight: bold;
+  color: #2563eb;
+}
+
+.navbar-buttons {
+    display: flex;
+    align-items: center;
+    color: #2563eb;
+}
+
+.navbar-buttons h1{
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+.navbar-buttons mat-icon {
+    color: #2563eb;
+}

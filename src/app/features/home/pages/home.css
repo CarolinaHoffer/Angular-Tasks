@@ -1,0 +1,85 @@
+.home-container {
+  min-height: 100vh;
+  position: relative;
+}
+
+.home-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.home-content {
+  flex: 1;
+  padding-top: 100px;
+  padding-left: 30px;
+  padding-right: 30px;
+  animation: contentEnter 0.5s ease-out;
+}
+
+@keyframes contentEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.searchForm {
+  display: inline-flex;
+}
+
+.searchForm mat-form-field{
+  margin-left: 15px;
+}
+
+.descriptionAndSearch {
+  display: flex;
+  justify-content: space-between;
+}
+
+.description h1 {
+  font-size: 26px;
+  font-weight: bold;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-weight: 300;
+  font-size: 16px;
+  color:#69758a;
+}
+
+.newLabelButton {
+  border: none;
+  width: 56px;
+  height: 56px;
+  margin-left: 5px;
+  background: #2563eb;
+  font-weight: 400;
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* OPTIONS */
+
+.options-button {
+  color: #7a879d;
+  margin-top: 6px;
+  margin-left: 5px;
+}
+
+.options-button:hover {
+  color: #172a53;
+}
+
+.options-button mat-icon-button {
+}

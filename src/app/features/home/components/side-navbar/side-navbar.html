@@ -1,0 +1,59 @@
+<aside class="side-navbar">
+
+    <div class="side-navbar-content">
+        <div class="newTaskButton">
+            <button  matFab extended (click)="openAddTaskDialog()">
+                <mat-icon>add</mat-icon><span>Nueva Tarea</span>
+            </button>
+        </div>
+        <div class="labels">
+            <mat-action-list class="task-list">
+                <button
+                    mat-list-item
+                    [class.selected]="selectedView === 'all'"
+                    (click)="selectView('all')"
+                >
+                    <mat-icon matListItemIcon>inbox</mat-icon>
+                    <span matListItemTitle>Todas las tareas</span>
+                </button>
+
+                <button
+                    mat-list-item
+                    [class.selected]="selectedView === 'today'"
+                    (click)="selectView('today')"
+                >
+                    <mat-icon matListItemIcon>today</mat-icon>
+                    <span matListItemTitle>Hoy</span>
+                </button>
+
+                <button
+                    mat-list-item
+                    [class.selected]="selectedView === 'pending'"
+                    (click)="selectView('pending')"
+                >
+                    <mat-icon matListItemIcon>schedule</mat-icon>
+                    <span matListItemTitle>Pendientes</span>
+                </button>
+
+                <button
+                    mat-list-item
+                    [class.selected]="selectedView === 'overdue'"
+                    (click)="selectView('overdue')"
+                >
+                    <mat-icon matListItemIcon>event_busy</mat-icon>
+                    <span matListItemTitle>Atrasadas</span>
+                </button>
+
+                <button
+                    mat-list-item
+                    [class.selected]="selectedView === 'completed'"
+                    (click)="selectView('completed')"
+                >
+                    <mat-icon matListItemIcon>check_circle</mat-icon>
+                    <span matListItemTitle>Completadas</span>
+                </button>
+
+                </mat-action-list>
+        </div>
+    </div> 
+</aside>

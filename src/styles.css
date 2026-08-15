@@ -1,3 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import 'tailwindcss';
+@import '@angular/material/prebuilt-themes/azure-blue.css';
+
+html,
+body {
+  margin: 0;
+  font-family: 'Geist', sans-serif;
+}
+
+body *:not(mat-icon) {
+  font-family: 'Geist', sans-serif;
+}

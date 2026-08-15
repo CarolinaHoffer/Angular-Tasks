@@ -1,0 +1,53 @@
+.delete-dialog {
+  padding: 28px;
+  text-align: center;
+  min-width: 320px;
+}
+
+.delete-icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.delete-icon mat-icon {
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+}
+
+.delete-dialog h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.delete-dialog p {
+  margin: 10px 0 24px;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px; 
+}
+
+.delete-button {
+  background: #dc2626 !important;
+  color: white !important;
+}
+
+.delete-button:hover {
+  background: #b91c1c !important;
+}

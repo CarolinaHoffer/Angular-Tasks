@@ -1,0 +1,115 @@
+.labels-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+
+/* CHIP */
+
+.label-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  height: 32px;
+  padding: 0 8px;
+
+  border: 1px solid var(--label-color);
+  border-radius: 16px;
+
+  color: var(--label-color);
+  background: transparent;
+
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.label-chip > mat-icon {
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+
+  color: var(--label-color);
+}
+
+.label-chip span {
+  line-height: 1;
+}
+
+.label-chip button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+  height: 20px;
+
+  padding: 0;
+  margin: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  color: var(--label-color);
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.label-chip button:hover {
+  background: color-mix(
+    in srgb,
+    var(--label-color) 15%,
+    transparent
+  );
+}
+
+.label-chip button mat-icon {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+}
+
+
+/* + AÑADIR */
+
+.add-label-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  height: 32px;
+  padding: 0 10px;
+
+  border: 1px dashed #999;
+  border-radius: 16px;
+
+  background: transparent;
+  color: #666;
+
+  cursor: pointer;
+}
+
+.add-label-button:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.add-label-button mat-icon {
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+}
+
+
+/* OPCIONES DEL MENU */
+
+.label-option {
+  display: flex;
+  align-items: center;
+}
+
+.check-icon {
+  margin-left: auto;
+}

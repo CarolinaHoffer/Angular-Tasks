@@ -1,0 +1,122 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 420px;
+}
+
+.icon-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.icon-selector-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon-selector-header > span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.selected-icon {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #2563eb;
+  font-size: 13px;
+}
+
+.icon-search {
+  width: 100%;
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 4px;
+}
+
+.icon-option {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #d9e2f5;
+  border-radius: 8px;
+
+  background: white;
+  color: #5b6b87;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.icon-option:hover {
+  background: #f4f7fc;
+  border-color: #b9c8e3;
+}
+
+.icon-option.selected {
+  background: #eef4ff;
+  border: 2px solid #2563eb;
+  color: #2563eb;
+}
+
+.icon-option mat-icon {
+  font-size: 22px;
+  width: 22px;
+  height: 22px;
+}
+
+.no-icons {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+  font-size: 13px;
+}
+
+.color-preview {
+  width: 38px;
+  height: 38px;
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #d9e2f5;
+  cursor: pointer;
+}
+
+.color-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+
+}
+
+.color-value {
+    padding-top: 5px;
+}
+
+.nameForm {
+  margin-top: 10px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 10px 0;
+}

@@ -1,0 +1,87 @@
+.task-card {
+  padding: 18px;
+  border: 1px solid #d9e2f5;
+  border-radius: 12px;
+  background: white;
+  box-sizing: border-box;
+}
+
+.task-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.task-labels {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.task-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border: 1px solid;
+  border-radius: 12px;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.task-label mat-icon {
+  font-size: 15px;
+  width: 15px;
+  height: 15px;
+}
+
+.options-button {
+  flex-shrink: 0;
+}
+
+.task-card-content {
+  margin-top: 12px;
+}
+
+.task-card-content h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.task-card-content p {
+  margin: 7px 0 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.task-card-divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 16px 0 12px;
+}
+
+.task-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #5b6b87;
+  font-size: 13px;
+}
+
+.task-card-footer mat-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+

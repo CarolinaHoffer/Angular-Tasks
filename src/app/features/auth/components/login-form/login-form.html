@@ -1,0 +1,82 @@
+
+<div class="login-form">
+
+  <mat-card class="login-form" appearance="outlined">
+  <mat-card-content class="login-card-content">
+
+      <div class="login-header">
+        <img  src="/icono.png" alt="Tasks"   [class.spinning]="isLoading"/>
+        <h1>¡Bienvenido de nuevo!</h1>
+        <p>Ingresa a tu gestor de tareas personal</p>
+      </div>
+
+     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field appearance="outline">
+      <mat-icon matPrefix>email</mat-icon>
+
+      <mat-label>Email</mat-label>
+
+      <input
+        matInput
+        type="email"
+        formControlName="email"
+      />
+
+      @if (loginForm.controls.email.hasError('required')) {
+        <mat-error>El email es obligatorio</mat-error>
+      }
+
+      @if (loginForm.controls.email.hasError('email')) {
+        <mat-error>Ingresá un email válido</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-icon matPrefix>lock</mat-icon>
+      <mat-label>Contraseña</mat-label>
+
+
+      <input
+        matInput
+        type="password"
+        formControlName="password"
+      />
+
+      @if (loginForm.controls.password.hasError('required')) {
+        <mat-error>La contraseña es obligatoria</mat-error>
+      }
+    </mat-form-field>
+
+    <button
+      mat-flat-button
+      type="submit"
+      class="login-button"
+    >
+      Iniciar sesión
+    </button>
+
+  </form>
+  </mat-card-content>
+  
+  <hr class="divider">
+
+  <mat-card-actions>
+    <div class="register-divider">
+    <span>¿No tenés una cuenta?</span>
+    <a
+      href=""
+      (click)="register.emit(); $event.preventDefault()"
+    >
+      Registrate
+    </a>
+  </div>
+  </mat-card-actions>
+</mat-card>
+
+
+ 
+
+  
+
+</div>

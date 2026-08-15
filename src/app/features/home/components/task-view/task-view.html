@@ -1,0 +1,14 @@
+
+<div class="task-grid"> 
+  @for (task of tasks; track task.id) {
+    <app-task-card
+      [task]="task"
+      (taskDeleted)="deleteTask($event)"
+      (taskConfirm)="confirmTask($event)"
+      (taskEdit)="editTask($event)"
+
+      >
+    </app-task-card>
+  }
+
+</div>

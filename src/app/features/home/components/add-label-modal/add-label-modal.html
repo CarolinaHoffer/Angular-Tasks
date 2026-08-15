@@ -1,0 +1,134 @@
+<h2 mat-dialog-title>
+  {{ isEditing ? 'Editar label' : 'Nuevo label' }}
+</h2>
+<hr class="divider">
+
+
+<mat-dialog-content>
+
+  <form [formGroup]="labelForm">
+
+    <mat-form-field class="nameForm" appearance="outline">
+      <mat-label>Nombre</mat-label>
+
+      <input
+        matInput
+        formControlName="name"
+        placeholder="Ej. Trabajo"
+      >
+
+      @if (labelForm.controls.name.hasError('required')) {
+        <mat-error>El nombre es obligatorio</mat-error>
+      }
+
+    </mat-form-field>
+
+<p><span class="color-label">Color</span></p>
+<div class="color-selector">
+
+<button
+    matFab
+    class="color-preview"
+    [style.background-color]="labelForm.controls.color.value"
+    [colorPicker]="labelForm.controls.color.value || '#2563EB'"
+    (colorPickerChange)="labelForm.controls.color.setValue($event)"
+    >
+    </button>
+
+  <span class="color-value">
+    {{ labelForm.controls.color.value }}
+  </span>
+
+</div>
+
+     <div class="icon-selector">
+
+      <div class="icon-selector-header">
+        <span>Icono</span>
+
+        <div class="selected-icon">
+          <mat-icon>
+            {{ labelForm.controls.icon.value }}
+          </mat-icon>
+
+          <span>
+            {{ labelForm.controls.icon.value }}
+          </span>
+        </div>
+      </div>
+
+      
+
+      <mat-form-field
+        appearance="outline"
+        class="icon-search"
+      >
+        <mat-label>Buscar icono</mat-label>
+
+        <mat-icon matIconPrefix>
+          search
+        </mat-icon>
+
+        <input
+          matInput
+          [formControl]="iconSearch"
+          placeholder="Ej. work, home, school..."
+        >
+      </mat-form-field>
+
+
+      <div class="icon-grid">
+
+        @for (icon of filteredIcons; track icon) {
+
+          <button
+            type="button"
+            class="icon-option"
+            [class.selected]="
+              labelForm.controls.icon.value === icon
+            "
+            (click)="selectIcon(icon)"
+            [attr.aria-label]="icon"
+          >
+
+            <mat-icon>
+              {{ icon }}
+            </mat-icon>
+
+          </button>
+
+        }
+
+      </div>
+
+      @if (filteredIcons.length === 0) {
+        <div class="no-icons">
+          No se encontraron iconos.
+        </div>
+      }
+
+    </div>
+
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+
+  <button
+    mat-button
+    type="button"
+    (click)="close()"
+  >
+    Cancelar
+  </button>
+
+  <button
+    mat-flat-button
+    type="button"
+    (click)="onSubmit()"
+  >
+    {{ isEditing ? 'Guardar cambios' : 'Crear label' }}
+  </button>
+
+</mat-dialog-actions>

@@ -1,0 +1,29 @@
+<div
+  class="login-container"
+  [class.logged-in]="isLoggedIn"
+>
+  <div class="side-panel-wrapper ">
+    <app-side-panel />
+  </div>
+
+  <div class="login-content">
+    <div class="form-flipper" [class.flipped]="showRegister">
+
+    <div class="form-face form-front">
+      <app-login-form
+        (loginSuccess)="onLoginSuccess()"
+        (register)="showRegister = true"
+      />
+    </div>
+
+    <div class="form-face form-back">
+      <app-register-form
+        (registerSuccess)="showRegister = false"
+        (backToLogin)="showRegister = false"
+      />
+    </div>
+
+  </div>
+
+  </div>
+</div>

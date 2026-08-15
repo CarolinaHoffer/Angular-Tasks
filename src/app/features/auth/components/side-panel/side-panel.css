@@ -1,0 +1,76 @@
+.side-panel {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.side-container {
+  display: grid;
+  padding: 140px 100px 50px;
+  color: white;
+}
+
+.side-container h1 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.side-text {
+  font-size: 16px;
+  margin-top: 16px;
+  margin-bottom: 32px;
+  font-weight: 300;
+}
+
+.side-container img {
+   border-radius: 12px;
+}
+/* 
+.rama3 {
+    position: absolute;
+    left: 630px;
+    top: 650px;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    width: 170px;
+    height: 500px;
+        transform: rotate(20deg);
+
+    opacity: 0.3;
+}
+
+.rama4 {
+    position: absolute;
+    left: 50px;
+    top: -140px;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    width: 140px;
+    height: 440px;
+    transform: rotate(230deg);
+
+    opacity: 0.3;
+} */
+
+.chip {
+  background-color: #ffffff;
+  font-weight: bold;
+  margin-top: 20px;
+  height: 45px;
+  --mat-sys-on-surface-variant: #ffffff;
+}
+
+.chip-text {
+    transform: translateY(-10px) !important;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: 300;
+}
+
+.plant-icon {
+  font-size: 20px;
+  margin-top: -10px;
+  transform: translateY(8px);
+}

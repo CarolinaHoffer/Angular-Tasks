@@ -1,0 +1,40 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.date-time {
+  display: flex;
+  gap: 12px;
+}
+
+.date-time mat-form-field {
+  flex: 1;
+}
+
+.titleField {
+  margin-top: 15px;
+}
+
+.descriptionField textarea {
+  height: 100px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 10px 0;
+}
+
+.label-container {
+  display: flex;
+  align-items: center;
+}
+.add-label {
+  margin-top: -5px;
+  margin-left: 5px;
+}
+.add-label mat-icon {
+    color: #666;
+}

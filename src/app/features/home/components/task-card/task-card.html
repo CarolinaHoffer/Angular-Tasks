@@ -1,0 +1,64 @@
+<div class="task-card">
+
+  <div class="task-card-header">
+    <div class="task-labels">
+      @for (label of task.labels ?? []; track label.id) {
+        <span
+          class="task-label"
+          [style.color]="label.color"
+          [style.border-color]="label.color"
+        >
+          <mat-icon>{{ label.icon }}</mat-icon>
+          {{ label.name }}
+        </span>
+      }
+    </div>
+
+    <button mat-icon-button  [matMenuTriggerFor]="taskMenu" aria-label="Opciones de tarea" class="options-button">
+      <mat-icon>more_horiz</mat-icon>
+    </button>
+
+    <mat-menu #taskMenu="matMenu">
+        <button mat-menu-item (click)="editTask()">
+            <mat-icon>edit</mat-icon>
+            <span>Editar</span>
+        </button>
+
+        <button mat-menu-item (click)="deleteTask()">
+            <mat-icon>delete</mat-icon>
+            <span>Borrar</span>
+        </button>
+    </mat-menu>
+  </div>
+
+  <div class="task-card-body">
+    <h3>{{ task.title }}</h3>
+
+    @if (task.description) {
+      <p>{{ task.description }}</p>
+    }
+  </div>
+
+  <div class="task-card-footer">
+    <div class="due-date">
+      <mat-icon>event</mat-icon>
+
+      <span>
+        {{ task.dueDate | date:'dd/MM/yyyy' }}
+        @if (task.dueTime) {
+          <span class="due-time">· {{ task.dueTime }}</span>
+        }
+      </span>
+    </div>
+    <div> 
+      <button mat-icon-button class="confirmed-button" [matTooltip]="task.completed ? 'Marcar como pendiente' : 'Confirmar tarea'" (click)="confirm()">
+        @if (task.completed) {
+          <mat-icon>check_circle</mat-icon>
+        } @else {
+          <mat-icon>schedule</mat-icon>
+        }
+      </button>
+    </div>
+  </div>
+
+</div>
