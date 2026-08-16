@@ -9,7 +9,7 @@ import { environment } from '../../enviroments/enviroments.js';
 })
 export class TaskService {
 
-  private apiUrl = environment.apiUrl;
+  private apiUrl = environment.apiUrl+'/tasks';
 
   constructor(private http: HttpClient) {}
 

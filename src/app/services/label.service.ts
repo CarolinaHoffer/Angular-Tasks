@@ -9,7 +9,7 @@ import { environment } from '../../enviroments/enviroments.js';
 })
 export class LabelService {
 
-  private apiUrl = environment.apiUrl;
+  private apiUrl = environment.apiUrl+'/labels';
 
   constructor(private http: HttpClient) {}
 
