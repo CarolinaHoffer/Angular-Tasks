@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user.js'
-import { Task, TaskWithCompleted } from '../models/task.js'
+import { TaskWithCompleted } from '../models/task.js'
+import { environment } from '../../enviroments/enviroments.js';
 
 interface UpdateNameUser {
   firstName: string;
@@ -15,7 +16,7 @@ interface UpdateNameUser {
 
 export class UserService {
 
-  private apiUrl = 'http://localhost:8080/users';
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
