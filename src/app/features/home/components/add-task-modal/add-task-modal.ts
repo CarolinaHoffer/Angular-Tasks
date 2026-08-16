@@ -15,13 +15,11 @@ import {
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatTooltip } from '@angular/material/tooltip';
 import { Label } from '../../../../models/label';
 import { LabelSelector } from '../label-selector/label-selector';
 
 import { MatTimepickerModule } from '@angular/material/timepicker';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatIcon } from '@angular/material/icon';
 import { Task } from '../../../../models/taskWithoutId';
 
 @Component({
@@ -35,8 +33,6 @@ import { Task } from '../../../../models/taskWithoutId';
     LabelSelector,
     MatTimepickerModule,
     MatDatepickerModule,
-    MatIcon,
-    MatTooltip
   ],
   templateUrl: './add-task-modal.html',
   styleUrl: './add-task-modal.css'
