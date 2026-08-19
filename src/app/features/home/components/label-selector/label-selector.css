@@ -102,6 +102,10 @@
   font-size: 18px;
 }
 
+:host ::ng-deep .add-label .mat-mdc-button-touch-target {
+  height: auto !important;
+}
+
 
 /* OPCIONES DEL MENU */
 

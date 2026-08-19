@@ -14,3 +14,7 @@ body *:not(mat-icon) {
 :root {
   --sidebar-width: 380px;
 }
+
+.mat-mdc-dialog-container {
+  height: auto !important;
+}
