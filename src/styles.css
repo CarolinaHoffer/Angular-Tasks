@@ -10,3 +10,7 @@ body {
 body *:not(mat-icon) {
   font-family: 'Geist', sans-serif;
 }
+
+:root {
+  --sidebar-width: 380px;
+}

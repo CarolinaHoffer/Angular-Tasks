@@ -18,6 +18,7 @@
 
 .login-container.logged-in .login-content {
   transform: translateX(100%);
+  width: var(--sidebar-width);
   opacity: 0;
 }
 
@@ -35,7 +36,7 @@
 }
 
 .login-container.logged-in .side-panel-wrapper {
-  width: 22%;
+  width: var(--sidebar-width) !important;
 }
 
 .login-container.logged-in app-side-panel {
@@ -93,4 +94,73 @@ app-side-panel {
 
 .form-flipper.flipped .form-back {
   transform: rotateY(0deg);
+}
+
+
+/*  Responsive - Mobile */
+
+@media (max-width: 768px) {
+
+ .login-container {
+    flex-direction: column;
+    height: 100dvh;
+    min-height: 100dvh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .side-panel-wrapper {
+    width: 100%;
+    height: 5dvh;
+    min-height: 100px;
+    max-height: 280px;
+    flex-shrink: 0;
+  }
+
+  app-side-panel {
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+  }
+
+   .login-content {
+  width: 100%;
+  min-width: 0;
+  flex: 1;
+  padding: 10px 20px 24px;
+  box-sizing: border-box;
+
+  align-items: center;
+}
+
+  .form-flipper {
+    width: 100%;
+    max-width: 420px;
+    min-width: 0;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+  .form-face {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .login-container.logged-in .side-panel-wrapper {
+    width: 100%;
+    height: 0;
+    min-height: 0;
+  }
+
+  .login-container.logged-in .login-content {
+    width: 100%;
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  .login-container.logged-in app-side-panel {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
 }

@@ -10,7 +10,7 @@ mat-form-field {
 }
 
 mat-dialog-content {
-  min-width: 400px;
+  min-width: 0px;
 }
 
 .divider {

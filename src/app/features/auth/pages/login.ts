@@ -20,7 +20,7 @@ export class Login {
   onLoginSuccess() {
       this.isLoggedIn = true;
           setTimeout(() => {
-            this.router.navigate(['/home']);
+          this.router.navigate(['/home']);
 
       }, 1100);
   }

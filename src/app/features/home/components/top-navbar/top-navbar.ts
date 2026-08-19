@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
@@ -31,6 +31,8 @@ export class TopNavbar {
       private cdr: ChangeDetectorRef
     ) {}
 
+    @Output() menuToggle = new EventEmitter<void>();
+
     ngOnInit(): void {
       this.getUser();
     }
@@ -41,11 +43,15 @@ export class TopNavbar {
     }
 
     getUser(): void {
-    this.userService.getMe().subscribe(user => {
-      this.user = user;
-      this.cdr.detectChanges();
-    });
-  }
+      this.userService.getMe().subscribe(user => {
+        this.user = user;
+        this.cdr.detectChanges();
+      });
+    }    
+
+    toggleSideNavbar(): void {
+      this.menuToggle.emit();
+    }
 
     editUser(): void {
       if (!this.user) {

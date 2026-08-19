@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef  } from '@angular/core';
+import { Component, ChangeDetectorRef, ViewChild  } from '@angular/core';
 import { SideNavbar } from '../components/side-navbar/side-navbar';
 import { TopNavbar } from '../components/top-navbar/top-navbar';
 import { AddTaskModal } from '../components/add-task-modal/add-task-modal';
@@ -21,26 +21,40 @@ import { ConfirmDeleteDialog } from '../components/confirm-delete-dialog/confirm
 import { MatTooltip } from '@angular/material/tooltip';
 import { forkJoin } from 'rxjs';
 import { MatDialogRef } from '@angular/material/dialog';
-
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 
 export type TaskViewOptions = 'all' | 'today' | 'pending' | 'overdue' | 'completed';
 
 @Component({
   selector: 'app-home',
-  imports: [SideNavbar, TopNavbar, MatTooltip, MatMenuModule, MatButtonModule, TaskView, MatFormFieldModule, MatIconModule, MatSelectModule, ReactiveFormsModule, MatInputModule],
+  imports: [SideNavbar, TopNavbar, MatSidenavModule, MatMenuModule, MatButtonModule, TaskView, MatFormFieldModule, MatIconModule, MatSelectModule, ReactiveFormsModule, MatInputModule],
   templateUrl: 'home.html',
   styleUrl: 'home.css',
 })
 export class Home {
+  isMobile = false;
+  isOver = false;
 
   constructor(
     private dialog: MatDialog, 
     private labelService: LabelService, 
     private taskService: TaskService,
     private userService: UserService,
-    private cdr: ChangeDetectorRef
-  ) {}
+    private cdr: ChangeDetectorRef,
+    private breakpointObserver: BreakpointObserver
+  ) {
+    this.breakpointObserver
+      .observe([
+        '(max-width: 768px)',
+        '(min-width: 769px) and (max-width: 1135px)'
+      ])
+      .subscribe(result => {
+        this.isMobile = result.breakpoints['(max-width: 768px)'];
+        this.isOver = result.breakpoints['(min-width: 769px) and (max-width: 1135px)'];
+      });
+  }
 
   searchForm = new FormGroup({
     search: new FormControl('', []),
@@ -69,6 +83,12 @@ export class Home {
         console.error('Error obteniendo labels:', error);
       }
     });
+  }
+
+  @ViewChild('sidenav') sidenav!: MatSidenav;
+
+  toggleSideNavbar(): void {
+    this.sidenav.toggle();
   }
 
   onChange(): void {
@@ -309,7 +329,10 @@ deleteLabel(): void {
         error: (error) => console.error('Error obteniendo tareas completadas:', error)
       });
       break;
-  }
+    }
+    if (this.isMobile) {
+      this.sidenav.close();
+    }
   }
 
 }
