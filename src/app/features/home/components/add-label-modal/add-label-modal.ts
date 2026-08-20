@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef  } from '@angular/material/dialog';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -31,6 +31,21 @@ export interface LabelModalData {
   styleUrl: './add-label-modal.css'
 })
 export class AddLabelModal {
+
+  @ViewChild(ColorPickerDirective)
+  colorPicker!: ColorPickerDirective;
+
+  colorPickerOpen = false;
+  
+  toggleColorPicker(): void {
+  if (this.colorPickerOpen) {
+    this.colorPicker.closeDialog();
+    this.colorPickerOpen = false;
+  } else {
+    this.colorPicker.openDialog();
+    this.colorPickerOpen = true;
+  }
+}
 
   labelForm = new FormGroup({
     name: new FormControl('', [

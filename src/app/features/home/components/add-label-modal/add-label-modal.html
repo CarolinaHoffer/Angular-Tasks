@@ -32,6 +32,7 @@
     [style.background-color]="labelForm.controls.color.value"
     [colorPicker]="labelForm.controls.color.value || '#2563EB'"
     (colorPickerChange)="labelForm.controls.color.setValue($event)"
+    (click)="toggleColorPicker()"
     >
     </button>
 
